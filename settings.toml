@@ -1,0 +1,4 @@
+ANKI_HOST = "192.168.178.131"
+ANKI_PORT = 8766
+ANKI_KEY = ""
+ANKI_DECK = "Top 100 German Verbs, German adjectives"
