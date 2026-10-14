@@ -148,3 +148,7 @@ Each test prints `ok`. `test_anki.py` replaces the CircuitPython modules with fa
 | `Anki on <host>:<port>: HTTP/1.0 501 ...` | Another program uses that port. Set `ANKI_PORT` to the AnkiConnect port. |
 | `Offline, no saved cards.` | The device cannot reach Anki, and its cache is empty. Make sure that Anki is open on the laptop and that the device is on the same Wi-Fi network. |
 | `No cards due.` | The decks in `ANKI_DECK` have no due or new cards. |
+
+## License
+
+This project uses the MIT License. See [LICENSE](LICENSE).
