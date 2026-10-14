@@ -1,7 +1,25 @@
-# Plain-text helpers shared by code.py (device) and test_text.py (Mac).
+# Plain-text helpers shared by the device code and test_text.py (Mac). No hardware imports here.
 import re
 
 ENTITIES = (("&nbsp;", " "), ("&lt;", "<"), ("&gt;", ">"), ("&quot;", '"'), ("&#39;", "'"), ("&amp;", "&"))
+
+# Characters that the built-in font lacks; anything else missing shows as "?".
+FALLBACK = {"Ö": "Oe", "’": "'", "‘": "'", "“": '"', "”": '"', "„": '"', "–": "-", "—": "-", "…": "..."}
+
+
+def to_font(text, has_glyph):
+    """Replace characters that the font cannot draw. ASCII is always drawable."""
+    return "".join(c if c < "\x80" or has_glyph(c) else FALLBACK.get(c, "?") for c in text)
+
+
+def parse_env(text):
+    """KEY=value lines, as in a .env file. Quotes around the value are optional; # starts a comment line."""
+    env = {}
+    for line in text.split("\n"):
+        k, sep, v = line.strip().partition("=")
+        if sep and not k.startswith("#"):
+            env[k.strip()] = v.strip().strip("\"'")
+    return env
 
 
 def strip_html(html):
