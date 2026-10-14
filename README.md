@@ -2,9 +2,9 @@
 
 This project turns a SpotPear ESP32-S3 1.54" "muma" board into a handheld flashcard device for Anki. The device shows your due cards on its screen, and you grade each card with one button. It gets the cards from the Anki desktop app on your laptop over Wi-Fi. When the laptop is not reachable, the device shows cards from an offline cache and sends your grades at the next sync.
 
-<video src="demo.mp4" controls width="320"></video>
+[![Demo of the device](demo.gif)](demo.mp4)
 
-If the video does not play here, open [demo.mp4](demo.mp4).
+Click the animation to open the full-quality video.
 
 ## Requirements
 
